@@ -19,6 +19,7 @@ myresult = mycursor.fetchall()
 count = 0;
 for row in myresult:
     diseaseName = row[0]
+    count = count+1
     print(diseaseName)
     os.system(
         f"snscrape --jsonl --max-results 1 --since 2020-06-01 twitter-search \"{diseaseName} until:2020-07-31\" > "
@@ -34,9 +35,12 @@ for row in myresult:
 
         sqlOperator = sql.SqlOperator.SqlOperator(tweets)
         sqlOperator.insert_users()
-        sqlOperator.insert_tweets()
-        sqlOperator.insert_tweettags()
-        sqlOperator.insert_tweetmentions()
+        #sqlOperator.insert_tweets()
+        #sqlOperator.insert_tweettags()
+        #sqlOperator.insert_tweetmentions()
+
+    if count == 1:
+        break
 
 
 

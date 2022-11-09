@@ -1,5 +1,6 @@
 import tweetParser
 from tweetParser.Tweet import Tweet
+import json
 
 
 class TweetParser:
@@ -45,3 +46,8 @@ class TweetParser:
             resultArray.append(tweet)
 
         return resultArray
+
+    def parseUsers(self, userText):
+        jsonUsers = json.dumps(userText, indent=4)
+        return jsonUsers
+
