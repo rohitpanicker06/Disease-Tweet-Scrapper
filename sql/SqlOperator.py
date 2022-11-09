@@ -42,7 +42,7 @@ class SqlOperator:
 
 
 
-        sqlformula = "INSERT INTO tweets(Tweet_ID,Twitter_Handle,Tweet_Text,Tweet_Created_Date,Tweet_url) VALUES(%s," \
+        sqlformula = "INSERT INTO Tweets (Tweet_ID, Twitter_Handle, Tweet_Text, Tweet_Created_Date, Tweet_url) VALUES(%s," \
                      "%s,%s,%s,%s) "
         jsonObj = json.loads(self.user)
         handle = jsonObj["username"]
@@ -53,7 +53,7 @@ class SqlOperator:
     def insert_tweetmentions(self):
         #Done
 
-        sqlformula = "INSERT INTO tweetmentions(Tweet_ID,Source_User,Target_User) VALUES(%s,%s,%s)"
+        sqlformula = "INSERT INTO TweetMentions (Tweet_ID,Source_User,Target_User) VALUES(%s,%s,%s)"
         for newMentionedUsers in self.mentionedUsers:
             userId = newMentionedUsers["id"]
             handle = newMentionedUsers["username"]
@@ -65,9 +65,9 @@ class SqlOperator:
             friendsCount = newMentionedUsers["friendsCount"]
             location = newMentionedUsers["location"]
             profileImageUrl = newMentionedUsers["profileImageUrl"]
-            sqlformulaUsers = "INSERT INTO tweettags(User_ID,Twitter_Handle,Display_Name,User_Description,verified," \
+            sqlformulaUsers = "INSERT INTO Users (User_ID,Twitter_Handle,Display_Name,User_Description,verified," \
                          "Profile_Created_At,Follower_Count,Friends_Count,User_Location,Profile_Image_URL) VALUES(%s,%s," \
-                         "%s,%s,%s,%s,%s,%s,%s,%s "
+                         "%s,%s,%s,%s,%s,%s,%s,%s) "
             users = (userId, handle, displayname, userDesc, verified, created, followerCount, friendsCount, location,
                      profileImageUrl)
             self.mycursor.execute(sqlformulaUsers, users)
@@ -88,7 +88,7 @@ class SqlOperator:
     def insert_tweettags(self):
         #Done
 
-        sqlformula = "INSERT INTO tweettags(Tweet_ID,Hashtags) VALUES(%s,%s)"
+        sqlformula = "INSERT INTO TweetTags (Tweet_ID,Hashtags) VALUES(%s,%s)"
         tweettags = (self.id, self.hashtags)
         self.mycursor.execute(sqlformula, tweettags)
         self.mydbConnectorInstance.commit()
@@ -96,7 +96,7 @@ class SqlOperator:
     def insert_users(self):
         #Done
 
-        sqlformula = "INSERT INTO tweettags(User_ID,Twitter_Handle,Display_Name,User_Description,verified,Profile_Created_At,Follower_Count,Friends_Count,User_Location,Profile_Image_URL) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s "
+        sqlformula = "INSERT INTO Users (User_ID,Twitter_Handle,Display_Name,User_Description,Verified,Profile_Created_At,Follower_Count,Friends_Count,User_Location,Profile_Image_URL) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
         jsonObj = json.loads(self.user)
         userId = jsonObj["id"]
         handle = jsonObj["username"]
