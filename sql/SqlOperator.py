@@ -1,6 +1,8 @@
 import json
-
+import math
 import mysql.connector
+
+
 # from diseases import Tweet
 import sql.SqlConnectorGenerator
 
@@ -38,9 +40,6 @@ class SqlOperator:
         self.mentionedUsers = tweet.mentionedUsers
 
     def insert_tweets(self):
-        #Done
-
-
 
         sqlformula = "INSERT INTO Tweets (Tweet_ID, Twitter_Handle, Tweet_Text, Tweet_Created_Date, Tweet_url) VALUES(%s," \
                      "%s,%s,%s,%s) "
@@ -51,7 +50,6 @@ class SqlOperator:
         self.mydbConnectorInstance.commit()
 
     def insert_tweetmentions(self):
-        #Done
 
         sqlformula = "INSERT INTO TweetMentions (Tweet_ID,Source_User,Target_User) VALUES(%s,%s,%s)"
         for newMentionedUsers in self.mentionedUsers:
@@ -89,12 +87,17 @@ class SqlOperator:
         #Done
 
         sqlformula = "INSERT INTO TweetTags (Tweet_ID,Hashtags) VALUES(%s,%s)"
+        if self.hashtags is None:
+            self.hashtags = None
+        else:
+            if math.isnan(self.hashtags):
+                self.hashtags = None
+
         tweettags = (self.id, self.hashtags)
         self.mycursor.execute(sqlformula, tweettags)
         self.mydbConnectorInstance.commit()
 
     def insert_users(self):
-        #Done
 
         sqlformula = "INSERT INTO Users (User_ID,Twitter_Handle,Display_Name,User_Description,Verified,Profile_Created_At,Follower_Count,Friends_Count,User_Location,Profile_Image_URL) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
         jsonObj = json.loads(self.user)
