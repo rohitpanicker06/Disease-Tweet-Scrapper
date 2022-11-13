@@ -12,8 +12,11 @@ For Macs: You could convert File encoding to ASCII by using cotEditor.
 
 
   -Users
+  
   -Tweets
+  
   -TweetMentions
+  
   -TweetTags
   
  5. Please refer to the SQLScripts folder for the physical model.
