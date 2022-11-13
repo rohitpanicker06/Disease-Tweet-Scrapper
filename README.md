@@ -9,6 +9,8 @@ NOTE: If one wants import the Diseases dataset provided in this repository to th
 For Macs: You could convert File encoding to ASCII by using cotEditor.
 
 4. Tweets will be fetched and parsed and the following tables will be populated:
+
+
   -Users
   -Tweets
   -TweetMentions
