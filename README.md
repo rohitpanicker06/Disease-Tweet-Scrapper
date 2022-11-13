@@ -1,6 +1,6 @@
 # ASSIGNMENT 2 - SCRAPING TWITTER - TEAM DATA SHERPAS
 # Python Twitter Bot for this assignment:
-Utilizes Sncrape module for scrapping tweets from twitter.
+Utilizes Sncrape module for scraping tweets from twitter.
 Note: No API_TOKENS needed.
 1. Code Entry Point : scrapper.ScrappingBot.py
 2. The code fetches 500 tweets for each Keyword.
