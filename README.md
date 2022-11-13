@@ -19,3 +19,6 @@ Database tables for this assignment:
 1. We created a "TweetMentions" table which contains data of the source users who mentions other users in their tweets and those mentioned users
 are stored in this table as target users.
 2. This "TweetMentions" table is present in the master branch like "Tweet Mentions.sql"
+
+
+NOTE: If one wants import the Diseases dataset provided in this repository to the Diseases table, the encoding for the dataset CSV file must be in ASCII.
