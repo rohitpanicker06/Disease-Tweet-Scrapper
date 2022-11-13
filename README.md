@@ -21,8 +21,12 @@ For Macs: You could convert File encoding to ASCII by using cotEditor.
   
  5. Please refer to the SQLScripts folder for the physical model.
 
+ 6. 
+IMP NOTE: 
 
-IMP NOTE: Please import the sqlscripts to build the tables and populate Diseases table using the dataset provide before running this bot, else the bot will fail to scrape tweets.
+*Please import the sqlscripts to build the tables and populate Diseases table using the dataset provide before running this bot, else the bot will fail to scrape tweets.
+
+* Please change the variable values in SQLConnector.py, ScrappingBot.py and SqlOperator.py file with the appropriate username, password and database name for successfuly estabilishing connection to your SQL Server. 
 
 
 Database tables for this assignment:
