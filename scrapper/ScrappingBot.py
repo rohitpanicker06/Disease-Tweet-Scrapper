@@ -21,7 +21,7 @@ for row in myresult:
     count = count + 1
     print(diseaseName)
     os.system(
-        f"snscrape --jsonl --max-results 10 --since 2020-06-01 twitter-search \"{diseaseName} until:2020-07-31\" > "
+        f"snscrape --jsonl --max-results 500 --since 2020-06-01 twitter-search \"{diseaseName} until:2022-07-28\" > "
         "text-query-tweets.json")
     tweets_df = pd.read_json('text-query-tweets.json', lines=True)
     print(tweets_df.to_string())
@@ -51,5 +51,3 @@ for row in myresult:
         except Exception as e:
             print("Exception occured while inserting TweetMentions into TweetMentions table = {}", e)
 
-    if count == 5:
-        break
